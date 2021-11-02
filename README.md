@@ -118,11 +118,11 @@ Brewery search data are available and accessible.
 
 ### Scrum Roles
 
-  -DevOps/Product Owner/Scrum Master: Bhawesh Joshi 
+  - DevOps/Product Owner/Scrum Master: Bhawesh Joshi 
 
-  -Frontend Developer: Jacob Joseph and Pallabi Das 
+  - Frontend Developer: Jacob Joseph and Pallabi Das 
 
-  -Integration Developer: Parul Ranjan and Trishita Aditya 
+  - Integration Developer: Parul Ranjan and Trishita Aditya 
 
 ### Weekly Meeting 
 
