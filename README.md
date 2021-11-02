@@ -1,13 +1,13 @@
-# Brewery Arc
+# BreweryArc
 
 ----
 
 Design Document 
 
-Bhawesh Joshi 
-Jacob Joseph 
-Pallabi Das 
-Parul Ranjan 
+Bhawesh Joshi, 
+Jacob Joseph, 
+Pallabi Das, 
+Parul Ranjan, and 
 Trishita Aditya 
 
 ## Introduction
@@ -48,11 +48,11 @@ Brewery search data are available and accessible.
 1.1
 
 
-**Given** a feed of country data is available
+**Given**  A feed of country data is available
 
 **When** I search for breweries list of from the given country 
 
-**Then** All the breweries get listed with these attribute:
+**Then**  All the breweries get listed with these attribute:
 
     Name: 12 Acres Brewing Company 
     City: Killeshin 
@@ -61,11 +61,11 @@ Brewery search data are available and accessible.
 
 1.2
 
-**Given** A feed of brewery data is available 
+**Given**  A feed of brewery data is available 
 
-**When** I search for “10-56-brewing-company-knox” 
+**When**  I search for “10-56-brewing-company-knox” 
 
-**Then** I should receive at most one result with these attributes: 
+**Then**  I should receive at most one result with these attributes: 
 
     Name: 10-56 Brewing Company
     Brewery: micro 
@@ -77,11 +77,11 @@ Brewery search data are available and accessible.
     
  1.3
  
-**Given** A feed of brewery data is available 
+**Given**  A feed of brewery data is available 
 
-**When** I search for “Large”(Brewery type) 
+**When**  I search for “Large”(Brewery type) 
 
-**Then** I should receive at least one result with these attributes: 
+**Then**  I should receive at least one result with these attributes: 
 
     Name: 10 Barrel Brewing Co - Bend Pub 
     Brewery Type: large 
@@ -93,11 +93,11 @@ Brewery search data are available and accessible.
     
 1.4
 
-**Given** A feed of brewery data is available 
+**Given**  A feed of brewery data is available 
 
-**When** I search for “Denver”(city)
+**When**  I search for “Denver”(city)
 
-**Then** I should receive at least one result with these attributes: 
+**Then**  I should receive at least one result with these attributes: 
 
     Name: 10 Barrel Brewing Co - Denver 
     Brewery Type: large 
@@ -109,11 +109,11 @@ Brewery search data are available and accessible.
     
 1.5
 
-**Give**n A feed of plant data is available 
+**Given**  A feed of brewery data is available 
 
-**When** I search for “dfhdjjdjjdjdjd”(gibberish)
+**When**  I search for “mdhmjjmjjmjmjm”(gibberish)
 
-**Then** I should receive zero results (an empty list)
+**Then**  I should receive zero results (an empty list)
 
 
 ### Scrum Roles
