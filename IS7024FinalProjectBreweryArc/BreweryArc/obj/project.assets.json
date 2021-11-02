@@ -662,11 +662,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+      "projectUniqueName": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024-001FinalProjectBlogofCrime\\BlogofCrime\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
       "projectName": "BreweryArc",
-      "projectPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+      "projectPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024-001FinalProjectBlogofCrime\\BlogofCrime\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
       "packagesPath": "C:\\Users\\jicks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
+      "outputPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024-001FinalProjectBlogofCrime\\BlogofCrime\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
