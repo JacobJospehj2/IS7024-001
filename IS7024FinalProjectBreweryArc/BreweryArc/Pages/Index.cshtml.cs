@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using QuickType;
 using System.Net;
+using Newtonsoft.Json.Schema;
 
 namespace BreweryArc.Pages
 {
@@ -24,6 +25,7 @@ namespace BreweryArc.Pages
             using (var webClient = new WebClient())
             {
                 string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
                 var breweries = Breweries.FromJson(jsonString);
                 ViewData["Breweries"] = breweries;
             }
