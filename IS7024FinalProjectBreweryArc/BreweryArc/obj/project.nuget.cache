@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X9ADC0TqrovnHmIkTJFAKbuosG1doXIh/5PSptKMb2R9UnujuH431Sr6kSLjQjK2ZV1yd6bvNpScy02uXQvWEA==",
+  "dgSpecHash": "o7jRyX9fNF1r6WiqIi4zR7Gs6jHUdXFsiYsQe06B/82mwVNMZ1zQCo856NPjokDwv3MEinamt8iiGiBvoPYG+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024-001FinalProjectBlogofCrime\\BlogofCrime\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+  "projectFilePath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024Final\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jicks\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.17\\microsoft.aspnetcore.mvc.razor.extensions.3.1.17.nupkg.sha512",
     "C:\\Users\\jicks\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.17\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.17.nupkg.sha512",
