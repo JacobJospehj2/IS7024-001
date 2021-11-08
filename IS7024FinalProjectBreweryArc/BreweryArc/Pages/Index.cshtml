@@ -12,19 +12,46 @@
     <div>
         <table border="1" width="90%">
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>brewery type</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Brewery Type</th>
+                <th>Street</th>
+                <th>Address 1st Part</th>
+                <th>Address 2nd Part</th>
+                <th>City</th>
+                <th>State</th>
+                <th>County Province</th>
+                <th>Postal Code</th>
+                <th>Country</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Phone</th>
+                <th>Website Url</th>
+                <th>Update At</th>
+                <th>Created At</th>
 
             </tr>
             @{
                 foreach (Breweries.BreweryCollection brr in brew)
                 {
                     <tr>
+                        <td>@brr.Id</td>
+                        <td>@brr.Name</td>
+                        <td>@brr.BreweryType</td>
+                        <td>@brr.Street</td>
+                        <td>@brr.Address2</td>
+                        <td>@brr.Address3</td>
                         <td>@brr.City</td>
+                        <td>@brr.State</td>
+                        <td>@brr.CountyProvince</td>
+                        <td>@brr.PostalCode</td>
                         <td>@brr.Country</td>
-                        <std>@brr.Address2<td>
-
+                        <td>@brr.Longitude</td>
+                        <td>@brr.Latitude</td>
+                        <td>@brr.Phone</td>
+                        <td>@brr.WebsiteUrl</td>
+                        <td>@brr.UpdatedAt</td>
+                        <td>@brr.CreatedAt</td>
 
                     </tr>
 
