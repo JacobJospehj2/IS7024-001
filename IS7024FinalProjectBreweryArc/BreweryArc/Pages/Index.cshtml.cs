@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using QuickType;
 using System.Net;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Linq;
 
 namespace BreweryArc.Pages
 {
@@ -24,8 +26,22 @@ namespace BreweryArc.Pages
             using (var webClient = new WebClient())
             {
                 string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
-                var breweries = Breweries.FromJson(jsonString);
-                ViewData["Breweries"] = breweries;
+                JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
+                JObject jsonObject = JObject.Parse(jsonString);
+                IList<string> validationEevnts = new List<string>();
+                if (jsonObject.IsValid(schema, out validationEevnts))
+                {
+                    var breweries = Breweries.FromJson(jsonString);
+                    ViewData["Breweries"] = breweries;
+                } 
+                else
+                {
+                    foreach(string evt in validationEevnts)
+                    {
+                        Console.WriteLine(evt);
+                    }
+                    ViewData["Breweries"] = new List<Breweries>();
+                }
             }
         }
     }
