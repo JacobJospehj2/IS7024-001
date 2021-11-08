@@ -31,8 +31,8 @@ namespace BreweryArc.Pages
                 IList<string> validationEevnts = new List<string>();
                 if (jsonObject.IsValid(schema, out validationEevnts))
                 {
-                    var breweries = Breweries.FromJson(jsonString);
-                    ViewData["Breweries"] = breweries;
+                    var breweries = Brewery.FromJson(jsonString);
+                    ViewData["Brewery"] = breweries;
                 } 
                 else
                 {
@@ -40,7 +40,7 @@ namespace BreweryArc.Pages
                     {
                         Console.WriteLine(evt);
                     }
-                    ViewData["Breweries"] = new List<Breweries>();
+                    ViewData["Breweries"] = new List<Brewery>();
                 }
             }
         }
