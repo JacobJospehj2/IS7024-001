@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using QuickType;
+using System.Net;
 
 namespace BreweryArc.Pages
 {
@@ -19,7 +21,12 @@ namespace BreweryArc.Pages
 
         public void OnGet()
         {
-
+            using (var webClient = new WebClient())
+            {
+                string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                var breweries = Breweries.FromJson(jsonString);
+                ViewData["Breweries"] = breweries;
+            }
         }
     }
 }
