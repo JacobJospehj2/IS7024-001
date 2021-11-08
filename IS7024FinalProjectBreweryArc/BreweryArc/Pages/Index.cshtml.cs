@@ -19,7 +19,10 @@ namespace BreweryArc.Pages
         {
             string brandName = Request.Query["BrandName"];
             int yearStarted = 2006;
-          
+          if (brandName == null || brandName.Length == 0)
+            {
+                brandName = "Brewery Arc";
+            }
             ViewData["brandName"] = brandName + yearStarted;
             {
             using (var webClient = new WebClient())
