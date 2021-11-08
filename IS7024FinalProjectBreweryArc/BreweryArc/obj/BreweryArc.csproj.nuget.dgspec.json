@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {}
+    "C:\\Users\\bhawe\\Desktop\\University Of Cincinnati\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {
+    "C:\\Users\\bhawe\\Desktop\\University Of Cincinnati\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+        "projectUniqueName": "C:\\Users\\bhawe\\Desktop\\University Of Cincinnati\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
         "projectName": "BreweryArc",
-        "projectPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
-        "packagesPath": "C:\\Users\\jicks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jicks\\OneDrive\\Desktop\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
+        "projectPath": "C:\\Users\\bhawe\\Desktop\\University Of Cincinnati\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+        "packagesPath": "C:\\Users\\bhawe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bhawe\\Desktop\\University Of Cincinnati\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\jicks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bhawe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -47,6 +49,10 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[3.1.17, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -67,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
         }
       }
     }
