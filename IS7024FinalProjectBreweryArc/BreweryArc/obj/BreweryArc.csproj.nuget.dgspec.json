@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bhawe\\Desktop\\Self Learn\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {}
+    "C:\\Users\\parul\\Documents\\GitHub\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bhawe\\Desktop\\Self Learn\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {
+    "C:\\Users\\parul\\Documents\\GitHub\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bhawe\\Desktop\\Self Learn\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+        "projectUniqueName": "C:\\Users\\parul\\Documents\\GitHub\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
         "projectName": "BreweryArc",
-        "projectPath": "C:\\Users\\bhawe\\Desktop\\Self Learn\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
-        "packagesPath": "C:\\Users\\bhawe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bhawe\\Desktop\\Self Learn\\XML\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
+        "projectPath": "C:\\Users\\parul\\Documents\\GitHub\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\BreweryArc.csproj",
+        "packagesPath": "C:\\Users\\parul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\parul\\Documents\\GitHub\\IS7024-001\\IS7024FinalProjectBreweryArc\\BreweryArc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\bhawe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\parul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     }
