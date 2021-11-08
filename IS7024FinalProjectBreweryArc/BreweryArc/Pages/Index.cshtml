@@ -2,9 +2,34 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    List<Breweries.BreweryCollection> brew = (List<Breweries.BreweryCollection>)ViewData["BreweryCollection"];
+
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome Brewey</h1>
-    <p>Learn about BreweryArc<a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Brewery</h1>
+    <hr />
+    <div>
+        <table border="1" width="90%">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>brewery type</th>
+
+            </tr>
+            @{
+                foreach (Breweries.BreweryCollection brr in brew)
+                {
+                    <tr>
+                        <td>@brr.City</td>
+                        <td>@brr.Country</td>
+                        <std>@brr.Address2<td>
+
+
+                    </tr>
+
+                }
+            }
+        </table>
+    </div>
 </div>
