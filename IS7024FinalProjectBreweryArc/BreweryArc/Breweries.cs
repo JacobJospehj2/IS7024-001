@@ -17,12 +17,12 @@ namespace QuickType
 
     public class Breweries
     {
-        public static Dictionary<string, string>[] FromJson(string json) => JsonConvert.DeserializeObject<Dictionary<string, string>[]>(json, QuickType.Converter.Settings);
+        public static List<Dictionary<string, string>> FromJson(string json) => JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json, QuickType.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Dictionary<string, string>[] self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
+        public static string ToJson(this List<Dictionary<string, string>> self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
     }
 
     internal static class Converter
