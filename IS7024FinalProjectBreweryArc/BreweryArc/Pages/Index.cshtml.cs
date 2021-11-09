@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Net;
 using Breweries;
+using DetailBrewery;
 using System.Collections.Generic;
 
 namespace BreweryArc.Pages
@@ -19,22 +20,32 @@ namespace BreweryArc.Pages
         {
             string brandName = Request.Query["BrandName"];
             int yearStarted = 2006;
-          if (brandName == null || brandName.Length == 0)
+            if (brandName == null || brandName.Length == 0)
             {
                 brandName = "Brewery Arc";
             }
             ViewData["brandName"] = brandName + yearStarted;
             {
-            using (var webClient = new WebClient())
-            {
-                // grab our JSON text.
-                string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                using (var webClient = new WebClient())
+                {
+                    // grab our JSON text.
+                    string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
 
-                // convert raw text to objects.
-                List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
+                    // convert raw text to objects.
+                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
 
-                //Getting data of all Brewery
-                ViewData["BreweryCollection"] = breweryCollections;
+                    //Getting data of all Brewery
+                    ViewData["BreweryCollection"] = breweryCollections;
+
+
+                    // grab our JSON text.
+                    string jsonStringDetails = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
+
+                    // convert raw text to objects.
+                    Brewery detailBrewery = Brewery.FromJson(json: jsonStringDetails);
+
+                    //Getting data of all Brewery
+                    ViewData["Brewery"] = detailBrewery;
 
                     //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
                     //JArray Array = JArray.Parse(jsonString);
@@ -51,18 +62,9 @@ namespace BreweryArc.Pages
                     //        Console.WriteLine(evt);
                     //    }
                     //    ViewData["Breweries"] = new List<Breweries>();
-                    // grab our JSON text.
-                    string jsonStringDetaisl = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
-
-                    // convert raw text to objects.
-                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
-
-                    //Getting data of all Brewery
-                    ViewData["BreweryCollection"] = breweryCollections;
-
-
                 }
             }
         }
     }
+
 }
