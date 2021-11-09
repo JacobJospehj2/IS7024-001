@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Home page";
     List<Breweries.BreweryCollection> brew = (List<Breweries.BreweryCollection>)ViewData["BreweryCollection"];
-   
+
+    DetailBrewery.Brewery brewDetail = (DetailBrewery.Brewery)ViewData["Brewery"];
+
+
 
 }
 
@@ -64,6 +67,61 @@
                     </tr>
 
                 }
+            }
+        </table>
+    </div>
+</div>
+
+
+<div class="text-center">
+    <h1 class="display-4">Brewery Details</h1>
+    <hr />
+    <div>
+        <table border="1" width="90%">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Brewery Type</th>
+                <th>Street</th>
+                <th>Address 1st Part</th>
+                <th>Address 2nd Part</th>
+                <th>City</th>
+                <th>State</th>
+                <th>County Province</th>
+                <th>Postal Code</th>
+                <th>Country</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Phone</th>
+                <th>Website Url</th>
+                <th>Update At</th>
+                <th>Created At</th>
+
+            </tr>
+            @{
+                
+                    <tr>
+                        <td>@brewDetail.Id</td>
+                        <td>@brewDetail.Name</td>
+                        <td>@brewDetail.BreweryType</td>
+                        <td>@brewDetail.Street</td>
+                        <td>@brewDetail.Address2</td>
+                        <td>@brewDetail.Address3</td>
+                        <td>@brewDetail.City</td>
+                        <td>@brewDetail.State</td>
+                        <td>@brewDetail.CountyProvince</td>
+                        <td>@brewDetail.PostalCode</td>
+                        <td>@brewDetail.Country</td>
+                        <td>@brewDetail.Longitude</td>
+                        <td>@brewDetail.Latitude</td>
+                        <td>@brewDetail.Phone</td>
+                        <td>@brewDetail.WebsiteUrl</td>
+                        <td>@brewDetail.UpdatedAt</td>
+                        <td>@brewDetail.CreatedAt</td>
+
+                    </tr>
+
+               
             }
         </table>
     </div>
