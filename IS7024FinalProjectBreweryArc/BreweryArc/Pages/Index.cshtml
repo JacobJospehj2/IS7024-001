@@ -3,11 +3,19 @@
 @{
     ViewData["Title"] = "Home page";
     List<Breweries.BreweryCollection> brew = (List<Breweries.BreweryCollection>)ViewData["BreweryCollection"];
+   
 
 }
 
+<a href="/" title="home" class="logo">
+    <div class="logo">
+        <img src="~/images/logo.jpg" width="200" alt="logo" />
+        <h1>BreweryArc</h1>
+    </div>
+</a>
+
 <div class="text-center">
-    <h1 class="display-4">Brewery</h1>
+    <h1 class="display-4">Brewery List</h1>
     <hr />
     <div>
         <table border="1" width="90%">
@@ -60,3 +68,4 @@
         </table>
     </div>
 </div>
+
