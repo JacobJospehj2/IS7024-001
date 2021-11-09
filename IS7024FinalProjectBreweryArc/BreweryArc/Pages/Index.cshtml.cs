@@ -36,21 +36,31 @@ namespace BreweryArc.Pages
                 //Getting data of all Brewery
                 ViewData["BreweryCollection"] = breweryCollections;
 
-                //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
-                //JArray Array = JArray.Parse(jsonString);
-                //IList<string> validationEevnts = new List<string>();
-                //if (jsonObject.IsValid(schema, out validationEevnts))
-                //{
-                //    var breweries = Breweries.FromJson(jsonString);
-                //    ViewData["Breweries"] = breweries;
-                //} 
-                //else
-                //{
-                //    foreach(string evt in validationEevnts)
-                //    {
-                //        Console.WriteLine(evt);
-                //    }
-                //    ViewData["Breweries"] = new List<Breweries>();
+                    //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
+                    //JArray Array = JArray.Parse(jsonString);
+                    //IList<string> validationEevnts = new List<string>();
+                    //if (jsonObject.IsValid(schema, out validationEevnts))
+                    //{
+                    //    var breweries = Breweries.FromJson(jsonString);
+                    //    ViewData["Breweries"] = breweries;
+                    //} 
+                    //else
+                    //{
+                    //    foreach(string evt in validationEevnts)
+                    //    {
+                    //        Console.WriteLine(evt);
+                    //    }
+                    //    ViewData["Breweries"] = new List<Breweries>();
+                    // grab our JSON text.
+                    string jsonStringDetaisl = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
+
+                    // convert raw text to objects.
+                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
+
+                    //Getting data of all Brewery
+                    ViewData["BreweryCollection"] = breweryCollections;
+
+
                 }
             }
         }
