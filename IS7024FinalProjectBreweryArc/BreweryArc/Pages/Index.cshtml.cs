@@ -30,14 +30,14 @@ namespace BreweryArc.Pages
                 using (var webClient = new WebClient())
                 {
                     // grab our JSON text.
-                    string Brewery_data = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
-                    string result = "";
+                    string Brewery_data = string.Empty;
+                    
 
 
 
                     try
                     {
-                        result = webClient.DownloadString(Brewery_data);
+                        Brewery_data = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
                     }
                     catch (Exception e)
                     {
@@ -56,14 +56,14 @@ namespace BreweryArc.Pages
 
 
                     // grab our JSON text.
-                    string detailBrewery = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
-                    string detailBreweryresult = "";
+                    string detailBrewery = string.Empty;
+                   
 
 
 
                     try
                     {
-                        detailBreweryresult = webClient.DownloadString(detailBrewery);
+                        detailBrewery = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
                     }
                     catch (Exception e)
                     {
