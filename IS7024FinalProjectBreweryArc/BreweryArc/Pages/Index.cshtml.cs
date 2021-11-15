@@ -4,6 +4,7 @@ using System.Net;
 using Breweries;
 using DetailBrewery;
 using System.Collections.Generic;
+using System;
 
 namespace BreweryArc.Pages
 {
@@ -29,23 +30,55 @@ namespace BreweryArc.Pages
                 using (var webClient = new WebClient())
                 {
                     // grab our JSON text.
-                    string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                    string Brewery_data = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                    string result = "";
+
+
+
+                    try
+                    {
+                        result = webClient.DownloadString(Brewery_data);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception while calling API", e);
+
+
+
+                    }
+                    
 
                     // convert raw text to objects.
-                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
+                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(Brewery_data);
 
                     //Getting data of all Brewery
                     ViewData["BreweryCollection"] = breweryCollections;
 
 
                     // grab our JSON text.
-                    string jsonStringDetails = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
+                    string detailBrewery = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
+                    string detailBreweryresult = "";
+
+
+
+                    try
+                    {
+                        detailBreweryresult = webClient.DownloadString(detailBrewery);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception while calling API", e);
+
+
+
+                    }
+                    
 
                     // convert raw text to objects.
-                    Brewery detailBrewery = Brewery.FromJson(json: jsonStringDetails);
+                    Brewery detailsofBrewery = Brewery.FromJson(json: detailBrewery);
 
                     //Getting data of all Brewery
-                    ViewData["Brewery"] = detailBrewery;
+                    ViewData["Brewery"] = detailsofBrewery;
 
                     //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
                     //JArray Array = JArray.Parse(jsonString);
