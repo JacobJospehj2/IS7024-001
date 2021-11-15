@@ -30,7 +30,7 @@ namespace Breweries
         public string Street { get; set; }
 
         [JsonProperty("address_2")]
-        public string Address2 { get; set; }
+        public object Address2 { get; set; }
 
         [JsonProperty("address_3")]
         public object Address3 { get; set; }
@@ -39,10 +39,10 @@ namespace Breweries
         public string City { get; set; }
 
         [JsonProperty("state")]
-        public object State { get; set; }
+        public string State { get; set; }
 
         [JsonProperty("county_province")]
-        public string CountyProvince { get; set; }
+        public object CountyProvince { get; set; }
 
         [JsonProperty("postal_code")]
         public string PostalCode { get; set; }
@@ -60,7 +60,7 @@ namespace Breweries
         public string Phone { get; set; }
 
         [JsonProperty("website_url")]
-        public Uri WebsiteUrl { get; set; }
+        public object WebsiteUrl { get; set; }
 
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
@@ -71,12 +71,12 @@ namespace Breweries
 
     public partial class BreweryCollection
     {
-        public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, Breweries.Converter.Settings);
+        public static BreweryCollection[] FromJson(string json) => JsonConvert.DeserializeObject<BreweryCollection[]>(json, Breweries.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this List<BreweryCollection> self) => JsonConvert.SerializeObject(self, Breweries.Converter.Settings);
+        public static string ToJson(this BreweryCollection[] self) => JsonConvert.SerializeObject(self, Breweries.Converter.Settings);
     }
 
     internal static class Converter
