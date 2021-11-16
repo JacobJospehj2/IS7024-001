@@ -76,3 +76,8 @@ table {
     border: 1px solid BLUE;
     padding: 5px 10px;
 }
+
+/*Position of Logo*/
+.logo_1 {
+    text-align: center;
+}
