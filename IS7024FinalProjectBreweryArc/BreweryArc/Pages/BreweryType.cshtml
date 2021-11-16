@@ -1,0 +1,70 @@
+﻿@page
+@model BreweryType.Pages.BreweriesType
+@{
+    Breweries.BreweryCollection type = (Breweries.BreweryCollection)ViewData["Brewery_Type"];
+
+}
+
+<div class="container">
+    <br />
+    <h2>Types of Brewery</h2>
+    <div>
+        <form method="get" class="row mb-3 ml-1">
+            <div class="input-group row">
+                <div class="col-sm-2 font-weight-bold">Choose Type of Brewery</div>
+                <select class="form-control" name="query" asp-for="@Model.ViewData" asp-items="ViewBag.Type"></select>
+                <div class="input-group-append">
+                    <input type="submit" value="Search" class="btn btn-outline-secondary" />
+                </div>
+            </div>
+        </form>
+        @if (string.IsNullOrWhiteSpace(Model.Type))
+        {
+
+        }
+        else if (type == null)
+        {
+            <div class="alert alert-info">Brewery Data for @Model.Type not found.</div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-body shadow border-0" style="background-color: orange">
+                        <div class="subtitle lead">
+                            CUMULATIVE
+                        </div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-6">
+                                Brewery Name
+                            </dt>
+                            <dd class="col-sm-6">
+                                @type.Name
+                            </dd>
+                            <dt class="col-sm-6">
+                                Type
+                            </dt>
+                            <dd class="col-sm-6">
+                                @type.BreweryType
+                            </dd>
+                            <dt class="col-sm-6">
+                                City
+                            </dt>
+                            <dd class="col-sm-6">
+                                @type.City
+                            </dd>
+                            <dt class="col-sm-6">
+                                Country
+                            </dt>
+                            <dd class="col-sm-6">
+                                @type.Country
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
