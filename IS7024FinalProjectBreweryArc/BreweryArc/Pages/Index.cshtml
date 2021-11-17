@@ -17,10 +17,12 @@
     </div>
 </a>
 
+
+
 <div class="text-center">
     <h1 class="display-4">Brewery List</h1>
     <hr />
-    <div>
+    <div class="tableFixHead">
         <table border="1" width="90%">
             <tr>
                 <th>ID</th>
@@ -45,7 +47,7 @@
             @{
                 foreach (Breweries.BreweryCollection brr in brew)
                 {
-                    <tr>
+                    <tr style="background-color:ButtonHighlight">
                         <td>@brr.Id</td>
                         <td>@brr.Name</td>
                         <td>@brr.BreweryType</td>
@@ -60,7 +62,7 @@
                         <td>@brr.Longitude</td>
                         <td>@brr.Latitude</td>
                         <td>@brr.Phone</td>
-                        <td>@brr.WebsiteUrl</td>
+                        <td><a href="@brr.WebsiteUrl" target="_blank">@brr.WebsiteUrl</a></td>
                         <td>@brr.UpdatedAt</td>
                         <td>@brr.CreatedAt</td>
 
@@ -100,7 +102,7 @@
             </tr>
             @{
                 
-                    <tr>
+                    <tr style="background-color:ButtonHighlight">
                         <td>@brewDetail.Id</td>
                         <td>@brewDetail.Name</td>
                         <td>@brewDetail.BreweryType</td>
