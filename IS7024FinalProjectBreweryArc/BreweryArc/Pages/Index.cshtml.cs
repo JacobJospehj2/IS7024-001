@@ -4,6 +4,7 @@ using System.Net;
 using Breweries;
 using DetailBrewery;
 using System.Collections.Generic;
+using System;
 
 namespace BreweryArc.Pages
 {
@@ -28,40 +29,27 @@ namespace BreweryArc.Pages
             {
                 using (var webClient = new WebClient())
                 {
-                    // grab our JSON text.
-                    string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                    string BreweriesData = string.Empty;
+                    try
+                    {
+                        BreweriesData = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error during API call - Breweries", e);
 
-                    // convert raw text to objects.
-                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(jsonString);
-
-                    //Getting data of all Brewery
+                    }
+                    List<BreweryCollection> breweryCollections = BreweryCollection.FromJson(BreweriesData);
                     ViewData["BreweryCollection"] = breweryCollections;
 
-
-                    // grab our JSON text.
                     string jsonStringDetails = webClient.DownloadString("https://api.openbrewerydb.org/breweries/10-56-brewing-company-knox");
 
-                    // convert raw text to objects.
+
                     Brewery detailBrewery = Brewery.FromJson(json: jsonStringDetails);
 
-                    //Getting data of all Brewery
                     ViewData["Brewery"] = detailBrewery;
 
-                    //JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("BreweryArc.json"));
-                    //JArray Array = JArray.Parse(jsonString);
-                    //IList<string> validationEevnts = new List<string>();
-                    //if (jsonObject.IsValid(schema, out validationEevnts))
-                    //{
-                    //    var breweries = Breweries.FromJson(jsonString);
-                    //    ViewData["Breweries"] = breweries;
-                    //} 
-                    //else
-                    //{
-                    //    foreach(string evt in validationEevnts)
-                    //    {
-                    //        Console.WriteLine(evt);
-                    //    }
-                    //    ViewData["Breweries"] = new List<Breweries>();
+                    
                 }
             }
         }
