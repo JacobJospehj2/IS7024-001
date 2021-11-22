@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.Net;
 using Breweries;
-using DetailBrewery;
 using System.Collections.Generic;
 
 namespace BreweryArc.Pages

@@ -14,7 +14,7 @@ namespace BreweryType.Pages
         public SelectList BreweryList { get; set; }
         public string Type { get; set; }
         public List<string> Count_list { get; set; }
-        public void OnGet(string query)
+        public void OnGetAsync(string query)
         {
 
             InitStateDropdown();
@@ -33,8 +33,7 @@ namespace BreweryType.Pages
                     var typeWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.BreweryType.ToString(), query, StringComparison.OrdinalIgnoreCase));
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)
                     {
-                        var orderedcountryWiseBrewerydetails = typeWiseBrewerydetails.OrderByDescending(x => x.CreatedAt).ToArray();
-                        ViewData["Brewery_Type"] = orderedcountryWiseBrewerydetails[0];
+                        ViewData["Brewery_Type"] = typeWiseBrewerydetails;
                     }
                     else
                     {
@@ -43,25 +42,26 @@ namespace BreweryType.Pages
                 }
                 else
                 {
-                    ViewData["Brewery_Type"] = null;
+                    ViewData["Brewery_details"] = null;
                 }
 
                 Type = query;
+
             }
         }
 
-        private void InitStateDropdown()
-        {
-            var Count_list = new List<string>
+            private void InitStateDropdown()
+            {
+                var Count_list = new List<string>
             {
                 { "Micro" },
-                { "Macro" },
+                { "Large" },
 
 
-        };
+            };
 
 
-            ViewData["Type"] = new SelectList(Count_list);
+                ViewData["Type"] = new SelectList(Count_list);
+            }
         }
     }
-}

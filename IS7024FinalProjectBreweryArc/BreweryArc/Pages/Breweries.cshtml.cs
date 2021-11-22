@@ -35,13 +35,9 @@ namespace BreweryArc.Pages
                     var Brewery_detailsList = Brewery_details.ToList();
                     var countryWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.Country.ToString(), query, StringComparison.OrdinalIgnoreCase));
                     if (countryWiseBrewerydetails != null && countryWiseBrewerydetails.Count > 0)
-                   // {
-                        //var orderedcountryWiseBrewerydetails = countryWiseBrewerydetails.OrderByDescending(x => x.CreatedAt).ToArray();
-                       // for (i = 0; i < orderedcountryWiseBrewerydetails[-1]; i++)
                         {
                             ViewData["Brewery_details"] = countryWiseBrewerydetails;
                         }
-                    // }
                     else
                     {
                         ViewData["Brewery_details"] = null;
