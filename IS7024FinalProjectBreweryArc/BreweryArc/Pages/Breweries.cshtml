@@ -1,7 +1,9 @@
 ﻿@page
 @model BreweryArc.Pages.BreweriesModel
 @{
-    Breweries.BreweryCollection brew = (Breweries.BreweryCollection)ViewData["Brewery_details"];
+    
+    // Breweries.BreweryCollection brew = (Breweries.BreweryCollection)ViewData["Brewery_details"];
+    var brew = (List<Breweries.BreweryCollection>)ViewData["Brewery_details"];
 }
 
 <div class="container">
@@ -26,82 +28,94 @@
             <div class="alert alert-info">COVID19 Data for @Model.SearchCountry not found.</div>
         }
         else
-        {
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-body shadow border-0" style="background-color: aliceblue">
-                        <div class="subtitle lead">
-                            CUMULATIVE
+        { 
+            <div>
+            @{
+
+            foreach (Breweries.BreweryCollection breww in brew)
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-body shadow border-0" style="background-color: aliceblue">
+                            <div class="subtitle lead">
+                                CUMULATIVE
+                            </div>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-6">
+                                    Date
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.CreatedAt.Date.ToShortDateString()
+                                </dd>
+                                <dt class="col-sm-6">
+                                    Brewery Name
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.Name
+                                </dd>
+                                <dt class="col-sm-6">
+                                    Brewery Type
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.BreweryType
+                                </dd>
+                                <dt class="col-sm-6">
+                                    Website URL
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.WebsiteUrl
+                                </dd>
+
+                            </dl>
                         </div>
-                        <hr />
-                        <dl class="row">
-                            <dt class="col-sm-6">
-                                Date
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.CreatedAt.Date.ToShortDateString()
-                            </dd>
-                            <dt class="col-sm-6">
-                                Brewery Name
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.Name
-                            </dd>
-                            <dt class="col-sm-6">
-                                Brewery Type
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.BreweryType
-                            </dd>
-                            <dt class="col-sm-6">
-                                Website URL
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.WebsiteUrl
-                            </dd>
-                            
-                        </dl>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-body shadow border-0" style="background-color: aliceblue">
+                            <div class="subtitle lead">
+                                Brewery Address
+                            </div>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-6">
+                                    Street
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.Street
+                                </dd>
+                                <dt class="col-sm-6">
+                                    Address2
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.Address2
+                                </dd>
+                                <dt class="col-sm-6">
+                                    City
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.City
+
+                                </dd>
+                                <dt class="col-sm-6">
+                                    State
+                                </dt>
+                                <dd class="col-sm-6">
+                                    @breww.State
+                                </dd>
+                                <dt class="col-sm-6">
+                                    New Deaths
+                                </dt>
+                            </dl>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card card-body shadow border-0" style="background-color: aliceblue">
-                        <div class="subtitle lead">
-                            Brewery Address
-                        </div>
-                        <hr />
-                        <dl class="row">
-                            <dt class="col-sm-6">
-                                Street
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.Street
-                            </dd>
-                            <dt class="col-sm-6">
-                                Address2
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.Address2
-                            </dd>
-                            <dt class="col-sm-6">
-                                City
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.City
-                               
-                            </dd>
-                            <dt class="col-sm-6">
-                                State
-                            </dt>
-                            <dd class="col-sm-6">
-                                @brew.State
-                            </dd>
-                            <dt class="col-sm-6">
-                                New Deaths
-                            </dt>
-                        </dl>
-                    </div>
-                </div>
-            </div>
+
+
+            }
         }
+        </div>
+            }
+        </div>
+
+        </div>
     </div>
-</div>

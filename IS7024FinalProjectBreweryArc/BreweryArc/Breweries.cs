@@ -71,12 +71,12 @@ namespace Breweries
 
     public partial class BreweryCollection
     {
-        public static BreweryCollection[] FromJson(string json) => JsonConvert.DeserializeObject<BreweryCollection[]>(json, Breweries.Converter.Settings);
+        public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, Breweries.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this BreweryCollection[] self) => JsonConvert.SerializeObject(self, Breweries.Converter.Settings);
+        public static string ToJson(this List<BreweryCollection> self) => JsonConvert.SerializeObject(self, Breweries.Converter.Settings);
     }
 
     internal static class Converter
