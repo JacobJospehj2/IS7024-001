@@ -108,14 +108,14 @@ namespace Breweries
 
     public partial class BreweryCollection
     {
-        public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, Breweries.Converter.Settings);
+        public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, QuickTypeNobelLaureates.Converter.Settings);
     }
 
 
 
     public static class Serialize
     {
-        public static string ToJson(this List<BreweryCollection> self) => JsonConvert.SerializeObject(self, Breweries.Converter.Settings);
+        public static string ToJson(this List<BreweryCollection> self) => JsonConvert.SerializeObject(self, QuickTypeNobelLaureates.Converter.Settings);
     }
 
 
