@@ -42,7 +42,7 @@ namespace BreweryType.Pages
                 }
                 else
                 {
-                    ViewData["Brewery_details"] = null;
+                    ViewData["Brewery_Type"] = null;
                 }
 
                 Type = query;
