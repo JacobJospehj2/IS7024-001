@@ -34,6 +34,7 @@ namespace BreweryArc.Pages
                 {
                     var Brewery_detailsList = Brewery_details.ToList();
                     var countryWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.Country.ToString(), query, StringComparison.OrdinalIgnoreCase));
+ 
                     if (countryWiseBrewerydetails != null && countryWiseBrewerydetails.Count > 0)
                         {
                             ViewData["Brewery_details"] = countryWiseBrewerydetails;

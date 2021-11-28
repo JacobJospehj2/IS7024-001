@@ -1,0 +1,120 @@
+﻿@page
+@model BreweriesSingle.Pages.BreweriesSingleModel
+
+@{
+
+    // var Single = (List<BreweriesSingleData.BreweriesSingleCollection>)ViewData["Brewery_details"];
+    BreweriesSingleData.BreweriesSingleCollection single = (BreweriesSingleData.BreweriesSingleCollection)ViewData["Brewery_details"];
+}
+
+<div class="container">
+    <br />
+    <h2>COVID19 Cases And Deaths</h2>
+    <div>
+        <form method="get" class="row mb-3 ml-1">
+            <div class="input-group row">
+                <div class="col-sm-2 font-weight-bold">Choose Country</div>
+                <select class="form-control" name="query" asp-for="@Model.SearchId" asp-items="ViewBag.SearchId"></select>
+                <div class="input-group-append">
+                    <input type="submit" value="Search" class="btn btn-outline-secondary" />
+                </div>
+            </div>
+        </form>
+        @if (string.IsNullOrWhiteSpace(Model.SearchId))
+        {
+
+        }
+        else if (single == null)
+        {
+            <div class="alert alert-info">COVID19 Data for @Model.SearchId not found.</div>
+        }
+        else
+        {
+            <div>
+                {
+                  
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-body shadow border-0" style="background-color: aliceblue">
+                                    <div class="subtitle lead">
+                                        CUMULATIVE
+                                    </div>
+                                    <hr />
+                                    <dl class="row">
+                                        <dt class="col-sm-6">
+                                            Date
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.CreatedAt.Date.ToShortDateString()
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Brewery Name
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            <a href="https://api.openbrewerydb.org/breweries/@single.Id" target="_blank">@single.Name</a>
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Brewery Type
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.BreweryType
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Website URL
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.WebsiteUrl
+                                        </dd>
+
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-body shadow border-0" style="background-color: aliceblue">
+                                    <div class="subtitle lead">
+                                        Brewery Address
+                                    </div>
+                                    <hr />
+                                    <dl class="row">
+                                        <dt class="col-sm-6">
+                                            Street
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Street
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Address2
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Address2
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            City
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.City
+
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            State
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.State
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            New Deaths
+                                        </dt>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+                }
+            </div>
+        }
+    </div>
+
+</div>
