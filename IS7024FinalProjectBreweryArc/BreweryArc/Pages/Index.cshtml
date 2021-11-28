@@ -2,128 +2,66 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    List<Breweries.BreweryCollection> brew = (List<Breweries.BreweryCollection>)ViewData["BreweryCollection"];
-
-    DetailBrewery.Brewery brewDetail = (DetailBrewery.Brewery)ViewData["Brewery"];
 
 
 
 }
 
-<a href="/" title="home" class="logo">
-    <div class="logo_1">
-        <img src="~/images/logo.jpg" width="200" alt="logo" />
-        <h1>BreweryArc</h1>
-    </div>
-</a>
-
-<div class="text-center">
-    <h1 class="display-4">Brewery List</h1>
-    <hr />
-    <div>
-        <table border="1" width="90%">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Brewery Type</th>
-                <th>Street</th>
-                <th>Address 1st Part</th>
-                <th>Address 2nd Part</th>
-                <th>City</th>
-                <th>State</th>
-                <th>County Province</th>
-                <th>Postal Code</th>
-                <th>Country</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-                <th>Phone</th>
-                <th>Website Url</th>
-                <th>Update At</th>
-                <th>Created At</th>
-
-            </tr>
-            @{
-                foreach (Breweries.BreweryCollection brr in brew)
-                {
-                    <tr>
-                        <td>@brr.Id</td>
-                        <td>@brr.Name</td>
-                        <td>@brr.BreweryType</td>
-                        <td>@brr.Street</td>
-                        <td>@brr.Address2</td>
-                        <td>@brr.Address3</td>
-                        <td>@brr.City</td>
-                        <td>@brr.State</td>
-                        <td>@brr.CountyProvince</td>
-                        <td>@brr.PostalCode</td>
-                        <td>@brr.Country</td>
-                        <td>@brr.Longitude</td>
-                        <td>@brr.Latitude</td>
-                        <td>@brr.Phone</td>
-                        <td>@brr.WebsiteUrl</td>
-                        <td>@brr.UpdatedAt</td>
-                        <td>@brr.CreatedAt</td>
-
-                    </tr>
-
-                }
-            }
-        </table>
+<div class="jumbotron-fluid text-light head_page">
+    <div class="container text-center container_padding">
+        <div>
+            <h1 class="display-3">
+                <em>
+                    <strong>
+                        TOGETHER <br />
+                        WE <span class="span_style">FIGHT</span>
+                    </strong>
+                </em>
+            </h1>
+        </div>
+        <div>
+            <p class="lead">
+                Be <span class="span_style"><strong>INFORMED.</strong></span>&nbsp;&nbsp;&nbsp;
+                Be <span class="span_style"><strong>PREPARED.</strong></span>&nbsp;&nbsp;&nbsp;
+                Be <span class="span_style"><strong>SMART.</strong></span>&nbsp;&nbsp;&nbsp;
+                Be <span class="span_style"><strong>SAFE.</strong></span>&nbsp;&nbsp;&nbsp;<br />
+                Be <span class="span_style"><strong>READY</strong></span> to fight <span class="span_style"><strong>#COVID19</strong></span>
+            </p>
+        </div>
     </div>
 </div>
-
-
-<div class="text-center">
-    <h1 class="display-4">Brewery Details</h1>
-    <hr />
-    <div>
-        <table border="1" width="90%">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Brewery Type</th>
-                <th>Street</th>
-                <th>Address 1st Part</th>
-                <th>Address 2nd Part</th>
-                <th>City</th>
-                <th>State</th>
-                <th>County Province</th>
-                <th>Postal Code</th>
-                <th>Country</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-                <th>Phone</th>
-                <th>Website Url</th>
-                <th>Update At</th>
-                <th>Created At</th>
-
-            </tr>
-            @{
-                
-                    <tr>
-                        <td>@brewDetail.Id</td>
-                        <td>@brewDetail.Name</td>
-                        <td>@brewDetail.BreweryType</td>
-                        <td>@brewDetail.Street</td>
-                        <td>@brewDetail.Address2</td>
-                        <td>@brewDetail.Address3</td>
-                        <td>@brewDetail.City</td>
-                        <td>@brewDetail.State</td>
-                        <td>@brewDetail.CountyProvince</td>
-                        <td>@brewDetail.PostalCode</td>
-                        <td>@brewDetail.Country</td>
-                        <td>@brewDetail.Longitude</td>
-                        <td>@brewDetail.Latitude</td>
-                        <td>@brewDetail.Phone</td>
-                        <td>@brewDetail.WebsiteUrl</td>
-                        <td>@brewDetail.UpdatedAt</td>
-                        <td>@brewDetail.CreatedAt</td>
-
-                    </tr>
-
-               
-            }
-        </table>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h2 style="color: teal">Get live data for better decisions in an uncertain time</h2>
+        <p class="lead text-muted">
+            Stay up-to-date with valuable coronavirus (COVID-19) data summarized by confirmed cases and deaths and vaccine administeration. <br />
+            "We are in this together -and we will get through this together."
+        </p>
+    </div>
+</section>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <img src="/img/WearMasks.png" alt="Wear Masks">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <img src="/img/WashHands.png" alt="Wash Hands">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <img src="/img/SaferChoices.jpg" style="height: 650px" alt="Safer Choices">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <img src="/img/GetVaccinated.jpg" style="height: 650px" alt="Get Vaccinated">
+            </div>
+        </div>
     </div>
 </div>
-
