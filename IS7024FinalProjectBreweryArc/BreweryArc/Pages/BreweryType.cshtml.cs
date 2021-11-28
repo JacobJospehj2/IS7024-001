@@ -23,17 +23,20 @@ namespace BreweryType.Pages
             {
 
                 string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                
                 var Brewery_Type = Breweries.BreweryCollection.FromJson(jsonString);
-
-
+          
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
                     var Brewery_detailsList = Brewery_Type.ToList();
+                   
                     var typeWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.BreweryType.ToString(), query, StringComparison.OrdinalIgnoreCase));
+                    
+                    
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)
                     {
-                        ViewData["Brewery_Type"] = typeWiseBrewerydetails;
+                   ViewData["Brewery_Type"] = typeWiseBrewerydetails;                     
                     }
                     else
                     {
@@ -52,11 +55,10 @@ namespace BreweryType.Pages
 
             private void InitStateDropdown()
             {
-                var Count_list = new List<string>
+            var Count_list = new List<string>
             {
                 { "Micro" },
-                { "Large" },
-
+                { "Large" },               
 
             };
 
