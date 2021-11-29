@@ -1,0 +1,114 @@
+﻿@page
+@model NobelLaureates.Pages.nobelLaureateFactsModel
+@{
+    var lauret = (List<QuickTypeNobelLaureates.Laureate>)ViewData["Laureate_details"];
+}
+
+<div class="container-brew-background">
+    <div class="container-brew">
+        <h2>Tipsy Geniuses!</h2>
+        <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+        <div>
+            <form method="get" class="row mb-3 ml-1">
+                <div class="input-group row">
+                    <div class="col-sm-2 font-weight-bold">Choose Country</div>
+                    <select class="form-control" name="query" asp-for="@Model.SearchCountry" asp-items="ViewBag.SearchCountry"></select>
+                    <div class="input-group-append">
+                        <input type="submit" value="Search" class="btn btn-outline-secondary" style="background-color: gainsboro"/>
+                    </div>
+                </div>
+            </form>
+            @if (string.IsNullOrWhiteSpace(Model.SearchCountry))
+            {
+
+            }
+            else if (lauret == null)
+            {
+                <div class="alert alert-info">Nobel Laureate Data for @Model.SearchCountry not found.</div>
+            }
+            else
+            {
+                <div>
+                    @{
+
+                        foreach (QuickTypeNobelLaureates.Laureate laurets in lauret)
+                        {
+
+
+
+                            @if (laurets.Firstname == "Albert")
+                            {
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="~/images/albert.jpg" alt="Avatar" style="width:300px;height:300px;">
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h1>@laurets.Firstname @laurets.Surname</h1>
+
+                                            <p>By most accounts, Einstein, despite being German, was not a beer drinker. But he may not have been a teetotaler, either. Einstein mentioned in a letter that at a party with Mileva Marić (who Einstein was married to for a time), he was apparently “very drunk,” which he revealed in a letter to his friend, mathematician Conrad Habicht, about the incident. So our Genuis mostly stayed away from Alcohol.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @if (laurets.Firstname == "Niels")
+                            {
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="~/images/neils.jpg" alt="Avatar" style="width:300px;height:300px;">
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h1>@laurets.Firstname @laurets.Surname</h1>
+                                            <p>After he won the Nobel Prize in 1922, the Carlsberg brewery gave him a gift - a house located next to the brewery. And the best perk of the house? It had a direct pipeline to the brewery so that Bohr had free beer on tap whenever he wanted.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @if (laurets.Firstname == "Rabindranath")
+                            {
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="~/images/rabindra.jpg" alt="Avatar" style="width:300px;height:300px;">
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h1>@laurets.Firstname @laurets.Surname</h1>
+                                            <p>Wine and Poetry is the best combination, and our genius here proved that. According to his diaries, most of his prominant creative works were a result of a glass of wine.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    }
+                </div>
+            }
+            @*<div class="about">
+                <img src="~/images/StephenKing-DrunkenQuote.jpg" class="thumbnail" style="width:100%">
+            </div>*@
+        </div>
+        <div class="header" id="myHeader">
+            <h1>Well something to keep you motivated!</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                    <img src="~/images/StephenKing-DrunkenQuote.jpg" style="width:100%">
+                 
+            </div>
+            <div class="column">
+                    <img src="~/images/beerquote2.jpg" style="width:100%">
+                    
+            </div>
+            <div class="column">
+                    <img src="~/images/beerquote3.jpg" style="width:100%">
+                   
+            </div>
+            <div class="column">
+                    <img src="~/images/beerquote4.jpg" style="width:100%">
+                    
+            </div>
+        </div>
+
+    </div>
+</div>
