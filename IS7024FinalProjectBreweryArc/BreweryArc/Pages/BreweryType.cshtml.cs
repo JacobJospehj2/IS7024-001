@@ -31,7 +31,7 @@ namespace BreweryType.Pages
                 {
                     var Brewery_detailsList = Brewery_Type.ToList();
                    
-                    var typeWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.BreweryType.ToString(), query, StringComparison.OrdinalIgnoreCase));
+                    var typeWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.BrewerySelect.ToString(), query, StringComparison.OrdinalIgnoreCase));
                     
                     
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)

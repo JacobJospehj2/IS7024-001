@@ -31,7 +31,7 @@ namespace Breweries
 
 
         [JsonProperty("brewery_type")]
-        public string BreweryType { get; set; }
+        public string BrewerySelect { get; set; }
 
 
 
