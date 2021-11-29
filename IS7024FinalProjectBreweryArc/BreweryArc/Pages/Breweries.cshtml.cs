@@ -56,8 +56,6 @@ namespace BreweryArc.Pages
         {
             var Count_list = new List<string>
          {
-             { "India" },
-             { "Canada" },
              { "United States" },
              { "Ireland" }
 
