@@ -1,0 +1,48 @@
+﻿@page
+@model BreweryArc.Pages.BeerTalkModel
+@{
+  
+    var teams = (IList<BreweryArc.Beers>)ViewData["Beer_List"];
+
+}
+
+<img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+
+<div margin="auto">
+    <h1 class="display-4">Lets have a quick questionaire!</h1></ br>
+    <form method="post">
+        <input type="text" class=" form-control mr-sm-2 col-sm-6" name="FirstName" placeholder="First Name" size="40" /><br />
+        <input type="text" class=" form-control mr-sm-2 col-sm-6" name="LastName" placeholder="Last Name" size="40" /><br />
+        <input type="text" class=" form-control mr-sm-2 col-sm-6" name="FavouriteBeer" placeholder="Tell me about your favourite beer" size="40" /><br />
+        <input type="text" class=" form-control mr-sm-2 col-sm-6" name="Capacity" placeholder="How many can you drink at once?" size="100" /><br />
+        <input type="text" class=" form-control mr-sm-2 col-sm-6" name="Improvement" placeholder="Any new Suggestions?" size="100" /><br />
+        <input id="Button1" type="submit" class="w3-btn w3-blue-grey" value="Submit" />
+    </form>
+</div>
+
+<div>
+    <hr />
+    <table border="1" width="90%">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Favourite Beer</th>
+            <th>Capacity</th>
+            <th>Improvements</th>
+        </tr>
+        @{ foreach (BreweryArc.Beers team in teams)
+                        {
+                <tr>
+                    <td>@team.FirstName</td>
+                    <td> @team.LastName</td>
+                    <td>@team.FavouriteBeer</td>
+                    <td> @team.Capacity</td>
+                    <td> @team.Improvement</td>
+
+                </tr> 
+                        }
+            }
+    </table>
+</div>
+
+
