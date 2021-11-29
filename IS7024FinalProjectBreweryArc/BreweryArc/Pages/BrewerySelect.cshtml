@@ -5,74 +5,130 @@
 
 }
 
-<div class="container">
-    <br />
-    <h2>Types of Brewery</h2>
-    <div>
-        <form method="get" class="row mb-3 ml-1">
-            <div class="input-group row">
-                <div class="col-sm-2 font-weight-bold">Choose Type of Brewery</div>
-                <select class="form-control" name="query" asp-for="@Model.Type1" asp-items="ViewBag.Type1"></select>
-                <div class="input-group-append">
-                    <input type="submit" value="Search" class="btn btn-outline-secondary" />
+<div class="container-brew-background">
+
+    <div class="container-brew">
+        <h2>Breweries</h2>
+        <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+        <div>
+            <form method="get" class="row mb-3 ml-1">
+                <div class="input-group row">
+                    <div class="col-sm-2 font-weight-bold">Choose Brewery of your choice</div>
+                    <select class="form-control" name="query" asp-for="@Model.Type1" asp-items="ViewBag.Type1"></select>
+                    <div class="input-group-append">
+                        <input type="submit" value="Search" class="btn btn-outline-secondary" style="height: 39px; background-color: gainsboro" />
+                    </div>
                 </div>
-            </div>
-        </form>
-        @if (string.IsNullOrWhiteSpace(Model.Type1))
-        {
+            </form>
+            @if (string.IsNullOrWhiteSpace(Model.Type1))
+            {
 
-        }
-        else if (Type == null)
-        {
-            <div class="alert alert-info">Brewery Data for @Model.Type1 not found.</div>
-        }
-        else
-        {
+            }
+            else if (Type == null)
+            {
+                <div class="alert alert-info">Brewery Data for @Model.Type1 not found.</div>
+            }
+            else
+            {
 
-            <div>
-                @{
-                    foreach (Breweries.BreweryCollection type in Type)
-                    {
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card card-body shadow border-0" style="background-color: orange">
-                                    <div class="subtitle lead">
-                                        CUMULATIVE
+                <div>
+                    @{
+                        foreach (Breweries.BreweryCollection type in Type)
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-body shadow border-0" style="background-color: goldenrod; margin-left: 450px; justify-content: center; width: 300px; height: 300px; perspective: 1000px; ">
+                                        <div class="subtitle lead">
+                                            Brewery Details
+                                        </div>
+                                        <hr />
+                                        <dl class="row">
+                                            @if (!string.IsNullOrWhiteSpace(@type.Name))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Brewery Name
+                                                </dt>
+
+                                                <dd class="col-sm-6">
+                                                    <a asp-page="./BrewerySingle" asp-route-id="@type.Id">@type.Name</a>
+                                                </dd>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(@type.BrewerySelect))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Type
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @type.BrewerySelect
+                                                </dd>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(@type.City))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    City
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @type.City
+                                                </dd>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(@type.Country))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Country
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @type.Country
+                                                </dd>
+                                            }
+                                            </dl>
                                     </div>
-                                    <hr />
-                                    <dl class="row">
-                                        <dt class="col-sm-6">
-                                            Brewery Name
-                                        </dt>
-                                        <dd class="col-sm-6">
-                                            <a asp-page="./BrewerySingle" asp-route-id="@type.Id">@type.Name</a>
-                                        </dd>
-                                        <dt class="col-sm-6">
-                                            Type
-                                        </dt>
-                                        <dd class="col-sm-6">
-                                            @type.BrewerySelect
-                                        </dd>
-                                        <dt class="col-sm-6">
-                                            City
-                                        </dt>
-                                        <dd class="col-sm-6">
-                                            @type.City
-                                        </dd>
-                                        <dt class="col-sm-6">
-                                            Country
-                                        </dt>
-                                        <dd class="col-sm-6">
-                                            @type.Country
-                                        </dd>
-
-                                    </dl>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
+                </div>
+            }
+        </div>
+        <div class="header" id="myHeader">
+            <h1>You wouldn't wanna miss out on these top 4 Breweries!</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="https://101brewery.com/">
+                    <img src="~/images/101BreweryCafe.jpg" style="width:100%">
+                    <div class="img1">
+                        101 Brewery at Twana Roadhouse<br />
+                        <p>Quilcene, WA</p>
+                    </div>
+                </a>
             </div>
-        }
+            <div class="column">
+                <a href="https://www.105westbrewing.com/">
+                    <img src="~/images/105westBrewing.png" style="width:100%">
+                    <div class="img2">
+                        105 West Brewing Comapany<br />
+                        <p>Castle Rock, Colorado</p>
+                    </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://12acresbrewing.ie/">
+                    <img src="~/images/12acresbrewing.jpg" style="width:100%">
+                    <div class="img3">
+                        12 Acres Brewing Company<br />
+                        <p>Co Laois, Ireland</p>
+                    </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://10barrel.com/">
+                    <img src="~/images/barrelBrewery.jpeg" style="width:100%">
+                    <div class="img4">
+                        10 Barrel Brewing Co.<br />
+                        <p>Bend, Oregon</p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

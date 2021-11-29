@@ -912,3 +912,7 @@ img.background {
     color: white;
     transform: rotateY(180deg);
 }
+
+.performance-list a{
+    color: white;
+}
