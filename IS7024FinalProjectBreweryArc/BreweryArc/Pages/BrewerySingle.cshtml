@@ -2,7 +2,7 @@
 @model BreweriesSingle.Pages.BreweriesSingleModel
 
 @{
-    //Taking the data into a variable
+    //Taking the Data into a Variable
     BreweriesSingleData.BreweriesSingleCollection single = (BreweriesSingleData.BreweriesSingleCollection)ViewData["Brewery_details"];
 }
 
@@ -29,30 +29,42 @@
                             </div>
                             <hr />
                             <dl class="row">
-                                <dt class="col-sm-6">
-                                    Date
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.CreatedAt.Date.ToShortDateString()
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Brewery Name
-                                </dt>
+                                @if (!string.IsNullOrWhiteSpace(@single.Name))
+                                {
+                                    <dt class="col-sm-6">
+                                        Brewery Name
+                                    </dt>
+                                }
                                 <dd class="col-sm-6">
                                     @single.Name
                                 </dd>
-                                <dt class="col-sm-6">
-                                    Brewery Type
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.BreweryType
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Website URL
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.WebsiteUrl
-                                </dd>
+                                @if (!string.IsNullOrWhiteSpace(single.BreweryType))
+                                {
+                                    <dt class="col-sm-6">
+                                        Brewery Type
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                       @single.BreweryType.ToUpper()
+                                    </dd>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(single.CreatedAt.Date.ToShortDateString()))
+                                {
+                                    <dt class="col-sm-6">
+                                        Date
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.CreatedAt.Date.ToShortDateString()
+                                    </dd>
+                                }
+                                @if (!(@single.WebsiteUrl == null))
+                                {
+                                    <dt class="col-sm-6">
+                                        Website URL
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.WebsiteUrl
+                                    </dd>
+                                }
 
                             </dl>
                         </div>
@@ -64,34 +76,60 @@
                             </div>
                             <hr />
                             <dl class="row">
-                                <dt class="col-sm-6">
-                                    Street
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.Street
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Address2
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.Address2
-                                </dd>
-                                <dt class="col-sm-6">
-                                    City
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.City
-
-                                </dd>
-                                <dt class="col-sm-6">
-                                    State
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @single.State
-                                </dd>
-                                <dt class="col-sm-6">
-                                    New Deaths
-                                </dt>
+                                @if (!string.IsNullOrWhiteSpace(single.Street))
+                                {
+                                    <dt class="col-sm-6">
+                                        Street
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.Street
+                                    </dd>
+                                }
+                                @if (!(single.Address2 == null))
+                                {
+                                    <dt class="col-sm-6">
+                                        Address2
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.Address2
+                                    </dd>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(single.City))
+                                {
+                                    <dt class="col-sm-6">
+                                        City
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.City
+                                    </dd>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(single.State))
+                                {
+                                    <dt class="col-sm-6">
+                                        State
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.State
+                                    </dd>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(single.Country))
+                                {
+                                    <dt class="col-sm-6">
+                                        Country
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.Country
+                                    </dd>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(single.PostalCode))
+                                {
+                                    <dt class="col-sm-6">
+                                        Postal Code
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        @single.PostalCode
+                                    </dd>
+                                }
                             </dl>
                         </div>
                     </div>
