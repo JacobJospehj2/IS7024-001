@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Net;
-using Breweries;
-using DetailBrewery;
+using QuickTypeNobelLaureates;
 using System.Collections.Generic;
 
 namespace BreweryArc.Pages

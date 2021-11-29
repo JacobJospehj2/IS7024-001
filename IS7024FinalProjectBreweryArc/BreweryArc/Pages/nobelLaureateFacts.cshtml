@@ -1,0 +1,68 @@
+﻿@page
+@model NobelLaureates.Pages.nobelLaureateFactsModel
+@{
+    var lauret = (List<QuickTypeNobelLaureates.Laureate>)ViewData["Laureate_details"];
+}
+
+
+<div class="container">
+    <br />
+    <h2>COVID19 Cases And Deaths</h2>
+    <div>
+        <form method="get" class="row mb-3 ml-1">
+            <div class="input-group row">
+                <div class="col-sm-2 font-weight-bold">Choose Country</div>
+                <select class="form-control" name="query" asp-for="@Model.SearchCountry" asp-items="ViewBag.SearchCountry"></select>
+                <div class="input-group-append">
+                    <input type="submit" value="Search" class="btn btn-outline-secondary" />
+                </div>
+            </div>
+        </form>
+        @if (string.IsNullOrWhiteSpace(Model.SearchCountry))
+        {
+
+        }
+        else if (lauret == null)
+        {
+            <div class="alert alert-info">COVID19 Data for @Model.SearchCountry not found.</div>
+        }
+        else
+        {
+            <div>
+                @{
+
+                    foreach (QuickTypeNobelLaureates.Laureate laurets in lauret)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-body shadow border-0" style="background-color: aliceblue">
+                                    <div class="subtitle lead">
+                                    </div>
+                                    <hr />
+                                    <dl class="row">
+                                        <dt class="col-sm-6">
+                                            Date
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @laurets.BornCountry
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Country
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @laurets.Firstname
+                                        </dd>
+                                        <dt class="col-sm-6">
+                                            Name
+                                        </dt>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    </div>
+
+</div>

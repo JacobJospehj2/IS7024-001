@@ -1,7 +1,7 @@
 ﻿@page
 @model BreweryArc.Pages.BreweriesModel
 @{
-    
+
     // Breweries.BreweryCollection brew = (Breweries.BreweryCollection)ViewData["Brewery_details"];
     var brew = (List<Breweries.BreweryCollection>)ViewData["Brewery_details"];
 }
@@ -32,8 +32,8 @@
             <div>
             @{
 
-            foreach (Breweries.BreweryCollection breww in brew)
-            {
+                foreach (Breweries.BreweryCollection breww in brew)
+                {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card card-body shadow border-0" style="background-color: aliceblue">
@@ -52,7 +52,7 @@
                                     Brewery Name
                                 </dt>
                                 <dd class="col-sm-6">
-                                    @breww.Name
+                                    <a asp-page="./BrewerySingle" asp-route-id="@breww.Id">@breww.Name</a>
                                 </dd>
                                 <dt class="col-sm-6">
                                     Brewery Type
@@ -117,5 +117,4 @@
             }
         </div>
 
-        </div>
-    </div>
+ </div>
