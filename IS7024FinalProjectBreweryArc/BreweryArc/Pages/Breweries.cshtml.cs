@@ -26,27 +26,27 @@ namespace BreweryArc.Pages
 
             {
 
-                string json_String = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
-                var Brewery_details = Breweries.BreweryCollection.FromJson(json_String);
+                string CountryBreweryJson= webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                var BreweryCountryDetails = Breweries.BreweryCollection.FromJson(CountryBreweryJson);
 
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
-                    var Brewery_detailsList = Brewery_details.ToList();
-                    var countryWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.Country.ToString(), query, StringComparison.OrdinalIgnoreCase));
+                    var BreweryCountryDetailsList = BreweryCountryDetails.ToList();
+                    var countryWiseBrewerydetails = BreweryCountryDetailsList.FindAll(x => string.Equals(x.Country.ToString(), query, StringComparison.OrdinalIgnoreCase));
  
                     if (countryWiseBrewerydetails != null && countryWiseBrewerydetails.Count > 0)
                         {
-                            ViewData["Brewery_details"] = countryWiseBrewerydetails;
+                            ViewData["BreweryCountryDetails"] = countryWiseBrewerydetails;
                         }
                     else
                     {
-                        ViewData["Brewery_details"] = null;
+                        ViewData["BreweryCountryDetails"] = null;
                     }
                 }
                 else
                 {
-                    ViewData["Brewery_details"] = null;
+                    ViewData["BreweryCountryDetails"] = null;
                 }
 
                 SearchCountry = query;

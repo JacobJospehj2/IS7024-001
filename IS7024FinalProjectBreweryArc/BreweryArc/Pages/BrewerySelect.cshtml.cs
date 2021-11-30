@@ -22,30 +22,30 @@ namespace BrewerySelect.Pages
 
             {
 
-                string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                string BreweryTypeJson = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
 
-                var Brewery_Select = Breweries.BreweryCollection.FromJson(jsonString);
+                var BreweryTypeSelect = Breweries.BreweryCollection.FromJson(BreweryTypeJson);
 
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
-                    var Brewery_SelectList = Brewery_Select.ToList();
+                    var BreweryTypeSelectList = BreweryTypeSelect.ToList();
 
-                    var typeWiseBrewerydetails = Brewery_SelectList.FindAll(x => string.Equals(x.Id.ToString(), query, StringComparison.OrdinalIgnoreCase));
+                    var typeWiseBrewerydetails = BreweryTypeSelectList.FindAll(x => string.Equals(x.Id.ToString(), query, StringComparison.OrdinalIgnoreCase));
 
 
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)
                     {
-                        ViewData["Brewery_Select"] = typeWiseBrewerydetails;
+                        ViewData["BreweryTypeSelect"] = typeWiseBrewerydetails;
                     }
                     else
                     {
-                        ViewData["Brewery_Select"] = null;
+                        ViewData["BreweryTypeSelect"] = null;
                     }
                 }
                 else
                 {
-                    ViewData["Brewery_Select"] = null;
+                    ViewData["BreweryTypeSelect"] = null;
                 }
 
                 Type1 = query;

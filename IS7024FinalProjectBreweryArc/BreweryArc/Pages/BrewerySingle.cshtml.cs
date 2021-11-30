@@ -24,17 +24,17 @@ namespace BreweriesSingle.Pages
 
             {               
                 {
-                    string json_String = webClient.DownloadString($"https://api.openbrewerydb.org/breweries/{id}") ; // Dynamically Implementing the 2nd API
-                    var Brewery_details = BreweriesSingleData.BreweriesSingleCollection.FromJson(json_String);
+                    string SingleBreweryJson = webClient.DownloadString($"https://api.openbrewerydb.org/breweries/{id}") ; // Dynamically Implementing the 2nd API
+                    var BrewerySingleDetails = BreweriesSingleData.BreweriesSingleCollection.FromJson(SingleBreweryJson);
 
-                    if (Brewery_details.Id != null)
+                    if (BrewerySingleDetails.Id != null)
                     {
-                        ViewData["Brewery_details"] = Brewery_details;
+                        ViewData["BrewerySingleDetails"] = BrewerySingleDetails;
                         
                     }
                     else
                     {
-                        ViewData["Brewery_details"] = null;
+                        ViewData["BrewerySingleDetails"] = null;
                     }
                   
                 }

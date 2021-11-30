@@ -15,7 +15,7 @@ namespace BreweryArc.Pages
 
     public void OnGet()
     {
-        ViewData["Beer_List"] = BeerList.allBeers;
+        ViewData["BeerList"] = BeerList.allBeers;
     }
 
     public void OnPost()
@@ -24,7 +24,7 @@ namespace BreweryArc.Pages
         string beerinfo = beer.FirstName + beer.LastName + beer.FavouriteBeer + beer.Capacity+beer.Improvement;
         BeerList.allBeers.Add(beer);
 
-        ViewData["Beer_List"] = BeerList.allBeers;
+        ViewData["BeerList"] = BeerList.allBeers;
     }
 }
 }

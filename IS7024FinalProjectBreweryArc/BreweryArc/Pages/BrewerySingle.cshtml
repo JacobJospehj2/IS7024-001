@@ -3,7 +3,7 @@
 
 @{
     //Taking the data into a variable
-    BreweriesSingleData.BreweriesSingleCollection single = (BreweriesSingleData.BreweriesSingleCollection)ViewData["Brewery_details"];
+    BreweriesSingleData.BreweriesSingleCollection single = (BreweriesSingleData.BreweriesSingleCollection)ViewData["BrewerySingleDetails"];
 }
 
 <div class="container-brew-background">
@@ -115,6 +115,16 @@
                                             @single.Country
                                         </dd>
                                     }
+                                    @if (!string.IsNullOrWhiteSpace(@single.PostalCode))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Postal Code
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.PostalCode
+                                        </dd>
+                                    }
+
 
                                 </dl>
                             </div>
