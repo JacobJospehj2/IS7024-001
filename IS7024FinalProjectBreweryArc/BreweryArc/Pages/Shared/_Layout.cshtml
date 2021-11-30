@@ -8,43 +8,75 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">BreweryArc</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Breweries">Breweries</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/BreweryType">BreweryInfo</a>
-                        </li>
-                    </ul>
+    
+    <div id="wrapper">
+        <header id="mainHeader">
+            <a href="/" title="home" class="logo">
+                <div class="logo">
+                    <img src="~/images/logo.jpg" width="200" alt="logo" />
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            </a>
+            <nav id="siteNav">
+                <ul>
+                    <li>
+                        <a href="/aboutus" title="About Us" class="current">About Us<br /></a>
+                    </li>
+                    <li>
+                        <a title="Breweries" class="last">Breweries<br /></a>
+                        <ul>
+                            <li><a href="/breweries" title="Country">Filter By Country</a></li>
+                            <li><a href="/brewerytype" title="type">filter by type</a></li>
+                            <li><a href="/breweryselect" title="Brewery Name">filter by Brewery Name</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/beertalk" title="Beer Talk" class="current">Beer Talk<br /></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <br>
+        </header>
+
+
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <footer id="pageFooter">
+
+            <section id="quickLinks">
+                <div class="container">
+                    &copy; 2021 - BreweryArc - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </div>
+            </section>
+            <section id="footerResources">
+                @*<h1>That frosty mug intelligence!</h1>*@
+                <ul id="quickNav">
+                    <li><a href="/nobelLaureateFacts" title="Our home page">Tipsy Geniuses!</a></li>
+                </ul>
+            </section>
+            <section id="companyInfo">
+                <h1>Contact</h1>
+                <p>888.777.666<br />555.444.333 <em>(24*7 support)</em></p>
+            </section>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @RenderSection("Scripts", required: false)
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - BreweryArc - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

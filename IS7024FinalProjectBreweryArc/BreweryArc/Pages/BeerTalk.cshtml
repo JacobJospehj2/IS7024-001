@@ -1,0 +1,54 @@
+﻿@page
+@model BreweryArc.Pages.BeerTalkModel
+@{
+  
+    var teams = (IList<BreweryArc.Beers>)ViewData["Beer_List"];
+
+}
+
+<div class="container-brew-background">
+
+    <div class="container-brew">
+        <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+
+        <div margin="auto">
+            <h1 class="display-4" style="text-align:center">Lets have a quick questionaire!</h1></ br>
+            <form method="post">
+                <input type="text" class=" form-control mr-sm-2 col-sm-6" name="FirstName" placeholder="First Name" size="40" /><br />
+                <input type="text" class=" form-control mr-sm-2 col-sm-6" name="LastName" placeholder="Last Name" size="40" /><br />
+                <input type="text" class=" form-control mr-sm-2 col-sm-6" name="FavouriteBeer" placeholder="Tell us about your favourite beer" size="40" /><br />
+                <input type="text" class=" form-control mr-sm-2 col-sm-6" name="Capacity" placeholder="How many cans you drink at once?" size="100" /><br />
+                <input type="text" class=" form-control mr-sm-2 col-sm-6" name="Improvement" placeholder="Any new Suggestions?" size="100" /><br />
+                <input id="Button1" type="submit" class="w3-btn w3-blue-grey" value="Submit" />
+            </form>
+        </div>
+        
+        <div>
+            <hr />
+            <table border="1" width="100%" style="background-color:#FFFFE0;">
+                <tr style="background-color: darkgoldenrod; color: black; text-align: center;">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Favourite Beer</th>
+                    <th>Capacity</th>
+                    <th>Improvements</th>
+                </tr>
+                @{ foreach (BreweryArc.Beers team in teams)
+                    {
+                        <tr style="color: black; text-align: center;">
+                            <td>@team.FirstName</td>
+                            <td> @team.LastName</td>
+                            <td>@team.FavouriteBeer</td>
+                            <td> @team.Capacity</td>
+                            <td> @team.Improvement</td>
+
+                        </tr>
+
+                    }
+                }
+            </table>
+        </div>
+        
+    </div>
+</div>
+

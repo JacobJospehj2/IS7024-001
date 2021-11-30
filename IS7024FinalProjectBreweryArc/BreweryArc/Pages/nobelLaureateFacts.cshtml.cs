@@ -54,11 +54,9 @@ namespace NobelLaureates.Pages
         {
             var Count_list = new List<string>
             {
-             { "India" },
-             { "Canada" },
-             { "United States" },
-             { "Ireland" },
-             { "Luxembourg" }
+             { "Denmark" },
+             { "Germany"},
+             { "India" }
 
 
             };
