@@ -31,7 +31,7 @@ namespace Breweries
 
 
         [JsonProperty("brewery_type")]
-        public string BreweryType { get; set; }
+        public string BrewerySelect { get; set; }
 
 
 
@@ -108,7 +108,7 @@ namespace Breweries
 
     public partial class BreweryCollection
     {
-        public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, QuickTypeNobelLaureates.Converter.Settings);
+     public static List<BreweryCollection> FromJson(string json) => JsonConvert.DeserializeObject<List<BreweryCollection>>(json, QuickTypeNobelLaureates.Converter.Settings);
     }
 
 

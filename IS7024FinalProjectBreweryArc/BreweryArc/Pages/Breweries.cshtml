@@ -1,120 +1,168 @@
 ﻿@page
 @model BreweryArc.Pages.BreweriesModel
 @{
-
-    // Breweries.BreweryCollection brew = (Breweries.BreweryCollection)ViewData["Brewery_details"];
     var brew = (List<Breweries.BreweryCollection>)ViewData["Brewery_details"];
 }
 
-<div class="container">
-    <br />
-    <h2>COVID19 Cases And Deaths</h2>
-    <div>
-        <form method="get" class="row mb-3 ml-1">
-            <div class="input-group row">
-                <div class="col-sm-2 font-weight-bold">Choose Country</div>
-                <select class="form-control" name="query" asp-for="@Model.SearchCountry" asp-items="ViewBag.SearchCountry"></select>
-                <div class="input-group-append">
-                    <input type="submit" value="Search" class="btn btn-outline-secondary" />
+<div class="container-brew-background">
+
+    <div class="container-brew">
+
+        <h2>Filter Brewery Based on the Country</h2>
+
+        <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+        <div>
+            <form method="get" class="row mb-3 ml-1">
+                <div class="input-group row">
+                    <div class="col-sm-2 font-weight-bold">Choose Country</div>
+                    <select class="form-control" name="query" asp-for="@Model.SearchCountry" asp-items="ViewBag.SearchCountry"></select>
+                    <div class="input-group-append">
+                        <input type="submit" value="Search" class="btn btn-outline-secondary" style="background-color: gainsboro"/>
+                    </div>
                 </div>
+            </form>
+            @if (string.IsNullOrWhiteSpace(Model.SearchCountry))
+            {
+
+            }
+            else if (brew == null)
+            {
+                <div class="alert alert-info">Brewery Data for @Model.SearchCountry not found.</div>
+            }
+            else
+            {
+                <div>
+                    @{
+
+                        foreach (Breweries.BreweryCollection breww in brew)
+                        {
+                            <div class="row" style="padding: 5px">
+                                <div class="col-md-6">
+                                    <div class="card card-body shadow border-0" style="background-color: goldenrod">
+                                        <div class="subtitle lead">
+                                            Brewery Details
+                                        </div>
+                                        <hr />
+                                        <dl class="row">
+                                            @if (!string.IsNullOrWhiteSpace(breww.Name))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Brewery Name
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    <a asp-page="./BrewerySingle" asp-route-id="@breww.Id">@breww.Name</a>
+                                                </dd>
+                                            }
+
+                                            @if (!(breww.WebsiteUrl == null))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Website URL
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @breww.WebsiteUrl
+                                                </dd>
+                                            }
+
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-body shadow border-0" style="background-color: goldenrod">
+                                        <div class="subtitle lead">
+                                            Brewery Address
+                                        </div>
+                                        <hr />
+                                        <dl class="row">
+                                            @if (!string.IsNullOrWhiteSpace(breww.Street))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Street
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @breww.Street
+                                                </dd>
+                                            }
+                                            @if (!(breww.Address2 == null))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    Address2
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @breww.Address2
+                                                </dd>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(breww.City))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    City
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @breww.City
+
+                                                </dd>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(breww.State))
+                                            {
+                                                <dt class="col-sm-6">
+                                                    State
+                                                </dt>
+                                                <dd class="col-sm-6">
+                                                    @breww.State
+                                                </dd>
+                                            }
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+                    }
+                </div>
+            }
+        </div>
+        <div class="header" id="myHeader">
+            <h1>You wouldn't wanna miss out on these top 4 Breweries!</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="https://101brewery.com/">
+                    <img src="~/images/101BreweryCafe.jpg" style="width:100%">
+                    <div class="img1">
+                        101 Brewery at Twana Roadhouse<br />
+                        <p>Quilcene, WA</p>
+                    </div>
+                </a>
             </div>
-        </form>
-        @if (string.IsNullOrWhiteSpace(Model.SearchCountry))
-        {
-
-        }
-        else if (brew == null)
-        {
-            <div class="alert alert-info">COVID19 Data for @Model.SearchCountry not found.</div>
-        }
-        else
-        { 
-            <div>
-            @{
-
-                foreach (Breweries.BreweryCollection breww in brew)
-                {
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card card-body shadow border-0" style="background-color: aliceblue">
-                            <div class="subtitle lead">
-                                CUMULATIVE
-                            </div>
-                            <hr />
-                            <dl class="row">
-                                <dt class="col-sm-6">
-                                    Date
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.CreatedAt.Date.ToShortDateString()
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Brewery Name
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.Name
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Brewery Type
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.BreweryType
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Website URL
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.WebsiteUrl
-                                </dd>
-
-                            </dl>
-                        </div>
+            <div class="column">
+                <a href="https://www.105westbrewing.com/">
+                    <img src="~/images/105westBrewing.png" style="width:100%">
+                    <div class="img2">
+                        105 West Brewing Comapany<br />
+                        <p>Castle Rock, Colorado</p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card card-body shadow border-0" style="background-color: aliceblue">
-                            <div class="subtitle lead">
-                                Brewery Address
-                            </div>
-                            <hr />
-                            <dl class="row">
-                                <dt class="col-sm-6">
-                                    Street
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.Street
-                                </dd>
-                                <dt class="col-sm-6">
-                                    Address2
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.Address2
-                                </dd>
-                                <dt class="col-sm-6">
-                                    City
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.City
-
-                                </dd>
-                                <dt class="col-sm-6">
-                                    State
-                                </dt>
-                                <dd class="col-sm-6">
-                                    @breww.State
-                                </dd>
-                                <dt class="col-sm-6">
-                                    New Deaths
-                                </dt>
-                            </dl>
-                        </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://12acresbrewing.ie/">
+                    <img src="~/images/12acresbrewing.jpg" style="width:100%">
+                    <div class="img3">
+                        12 Acres Brewing Company<br />
+                        <p>Co Laois, Ireland</p>
                     </div>
-                </div>
-
-
-            }
-        }
-        </div>
-            }
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://10barrel.com/">
+                    <img src="~/images/barrelBrewery.jpeg" style="width:100%">
+                    <div class="img4">
+                        10 Barrel Brewing Co.<br />
+                        <p>Bend, Oregon</p>
+                    </div>
+                </a>
+            </div>
         </div>
 
- </div>
+    </div>
+</div>

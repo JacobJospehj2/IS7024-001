@@ -1,0 +1,168 @@
+﻿@page
+@model BreweriesSingle.Pages.BreweriesSingleModel
+
+@{
+    //Taking the data into a variable
+    BreweriesSingleData.BreweriesSingleCollection single = (BreweriesSingleData.BreweriesSingleCollection)ViewData["Brewery_details"];
+}
+
+<div class="container-brew-background">
+
+    <div class="container-brew">
+        <h2>Welcome To @single.Name</h2>
+        <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
+        <div>
+            @if (string.IsNullOrWhiteSpace(Model.SearchId))
+            {
+                <div class="alert alert-info">No Data :-  @Model.SearchId not found.</div>
+            }
+            else if (single == null)
+            {
+                <div class="alert alert-info">Brewery Data for @Model.SearchId not found.</div>
+            }
+            else
+            {
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-body shadow border-0" style="background-color: goldenrod">
+                                <div class="subtitle lead">
+                                    Brewery Details
+                                </div>
+                                <hr />
+                                <dl class="row">
+                                    @if (!string.IsNullOrWhiteSpace(@single.Name))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Brewery Name
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Name
+                                        </dd>
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(@single.BreweryType))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Brewery Type
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.BreweryType
+                                        </dd>
+                                    }
+                                    @if (!(@single.WebsiteUrl == null))
+                                    {
+
+                                        <dt class="col-sm-6">
+                                            Website URL
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.WebsiteUrl
+                                        </dd>
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-body shadow border-0" style="background-color: goldenrod">
+                                <div class="subtitle lead">
+                                    Brewery Address
+                                </div>
+                                <hr />
+                                <dl class="row">
+                                    @if (!string.IsNullOrWhiteSpace(@single.Street))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Street
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Street
+                                        </dd>
+                                    }
+                                    @if (!(@single.Address2 == null))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Address2
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Address2
+                                        </dd>
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(@single.City))
+                                    {
+                                        <dt class="col-sm-6">
+                                            City
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.City
+
+                                        </dd>
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(@single.State))
+                                    {
+                                        <dt class="col-sm-6">
+                                            State
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.State
+                                        </dd>
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(@single.Country))
+                                    {
+                                        <dt class="col-sm-6">
+                                            Country
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            @single.Country
+                                        </dd>
+                                    }
+
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="header" id="myHeader">
+            <h1>You wouldn't wanna miss out on these top 4 Breweries!</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="https://101brewery.com/">
+                    <img src="~/images/101BreweryCafe.jpg" style="width:100%">
+                    <div class="img1">
+                        101 Brewery at Twana Roadhouse<br />
+                        <p>Quilcene, WA</p>
+                    </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://www.105westbrewing.com/">
+                    <img src="~/images/105westBrewing.png" style="width:100%">
+                    <div class="img2">
+                        105 West Brewing Comapany<br />
+                        <p>Castle Rock, Colorado</p>
+                    </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://12acresbrewing.ie/">
+                    <img src="~/images/12acresbrewing.jpg" style="width:100%">
+                    <div class="img3">
+                        12 Acres Brewing Company<br />
+                        <p>Co Laois, Ireland</p>
+                    </div>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://10barrel.com/">
+                    <img src="~/images/barrelBrewery.jpeg" style="width:100%">
+                    <div class="img4">
+                        10 Barrel Brewing Co.<br />
+                        <p>Bend, Oregon</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
