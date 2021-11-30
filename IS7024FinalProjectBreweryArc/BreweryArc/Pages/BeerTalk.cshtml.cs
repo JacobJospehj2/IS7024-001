@@ -20,10 +20,8 @@ namespace BreweryArc.Pages
 
         public void OnPost()
         {
-
             string beerinfo = beer.FirstName + beer.LastName + beer.FavouriteBeer + beer.Capacity + beer.Improvement;
             BeerList.allBeers.Add(beer);
-
             ViewData["BeerList"] = BeerList.allBeers;
         }
     }

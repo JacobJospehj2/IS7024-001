@@ -7,9 +7,7 @@
 <div class="container-brew-background">
 
     <div class="container-brew">
-
         <h2>Filter Brewery Based on the Country</h2>
-
         <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
         <div>
             <form method="get" class="row mb-3 ml-1">
@@ -53,7 +51,6 @@
                                                     <a asp-page="./BrewerySingle" asp-route-id="@breww.Id">@breww.Name</a>
                                                 </dd>
                                             }
-
                                             @if (!(breww.WebsiteUrl == null))
                                             {
                                                 <dt class="col-sm-6">
@@ -63,7 +60,6 @@
                                                     @breww.WebsiteUrl
                                                 </dd>
                                             }
-
                                         </dl>
                                     </div>
                                 </div>
@@ -115,8 +111,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         }
                     }
                 </div>
@@ -163,6 +157,5 @@
                 </a>
             </div>
         </div>
-
     </div>
 </div>

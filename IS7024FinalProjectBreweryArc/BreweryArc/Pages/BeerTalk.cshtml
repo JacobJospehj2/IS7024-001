@@ -1,13 +1,10 @@
 ﻿@page
 @model BreweryArc.Pages.BeerTalkModel
 @{
-  
     var teams = (IList<BreweryArc.Beers>)ViewData["BeerList"];
-
 }
 
 <div class="container-brew-background">
-
     <div class="container-brew">
         <img class="background" src="~/images/backgroundBeer.jpeg" alt="Aleq">
 
@@ -22,7 +19,6 @@
                 <input id="Button1" type="submit" class="w3-btn w3-blue-grey" value="Submit" />
             </form>
         </div>
-        
         <div>
             <hr />
             <table border="1" width="100%" class="table-hd">
@@ -41,14 +37,11 @@
                             <td>@team.FavouriteBeer</td>
                             <td> @team.Capacity</td>
                             <td> @team.Improvement</td>
-
                         </tr>
-
                     }
                 }
             </table>
         </div>
-        
     </div>
 </div>
 

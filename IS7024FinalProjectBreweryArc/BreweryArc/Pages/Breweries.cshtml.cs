@@ -18,17 +18,11 @@ namespace BreweryArc.Pages
         public List<string> Count_list { get; set; }
         public void  OnGetAsync(string query)
         {
-
             InitStateDropdown();
             using (var webClient = new WebClient())
-
-
             {
-
                 string CountryBreweryJson= webClient.DownloadString("https://api.openbrewerydb.org/breweries");
                 var BreweryCountryDetails = Breweries.BreweryCollection.FromJson(CountryBreweryJson);
-
-
                 if (!string.IsNullOrWhiteSpace(query))
                 {
                     var BreweryCountryDetailsList = BreweryCountryDetails.ToList();
@@ -47,11 +41,9 @@ namespace BreweryArc.Pages
                 {
                     ViewData["BreweryCountryDetails"] = null;
                 }
-
                 SearchCountry = query;
             }
         }
-
         private void InitStateDropdown()
         {
             var Count_list = new List<string>

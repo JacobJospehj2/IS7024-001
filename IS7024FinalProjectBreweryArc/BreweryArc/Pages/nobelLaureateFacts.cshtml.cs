@@ -21,9 +21,7 @@ namespace NobelLaureates.Pages
             InitStateDropdown();
             using (var webClient = new WebClient())
 
-
             {
-
                 string laureateJson = webClient.DownloadString("http://knowyourfavoritenobellaureate.azurewebsites.net/NobelLaureatesAll");
                 var laureateDetails = QuickTypeNobelLaureates.NobelLaureates.FromJson(laureateJson);
 
@@ -46,7 +44,6 @@ namespace NobelLaureates.Pages
                 }
 
                 SearchCountry = query;
-
             }
         }
 
@@ -57,8 +54,6 @@ namespace NobelLaureates.Pages
              { "Denmark" },
              { "Germany"},
              { "India" }
-
-
             };
 
             ViewData["SearchCountry"] = new SelectList(CountList);
