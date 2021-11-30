@@ -13,19 +13,19 @@ namespace BreweryArc.Pages
         [BindProperty]
         public Beers beer { get; set; }
 
-    public void OnGet()
-    {
-        ViewData["BeerList"] = BeerList.allBeers;
-    }
+        public void OnGet()
+        {
+            ViewData["BeerList"] = BeerList.allBeers;
+        }
 
-    public void OnPost()
-    {
-        
-        string beerinfo = beer.FirstName + beer.LastName + beer.FavouriteBeer + beer.Capacity+beer.Improvement;
-        BeerList.allBeers.Add(beer);
+        public void OnPost()
+        {
 
-        ViewData["BeerList"] = BeerList.allBeers;
+            string beerinfo = beer.FirstName + beer.LastName + beer.FavouriteBeer + beer.Capacity + beer.Improvement;
+            BeerList.allBeers.Add(beer);
+
+            ViewData["BeerList"] = BeerList.allBeers;
+        }
     }
-}
 }
 

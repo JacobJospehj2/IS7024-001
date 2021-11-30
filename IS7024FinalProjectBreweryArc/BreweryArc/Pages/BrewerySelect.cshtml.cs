@@ -18,21 +18,19 @@ namespace BrewerySelect.Pages
         {
 
             InitStateDropdown();
+
             using (var webClient = new WebClient())
 
             {
-
                 string BreweryTypeJson = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
 
                 var BreweryTypeSelect = Breweries.BreweryCollection.FromJson(BreweryTypeJson);
-
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
                     var BreweryTypeSelectList = BreweryTypeSelect.ToList();
 
                     var typeWiseBrewerydetails = BreweryTypeSelectList.FindAll(x => string.Equals(x.Id.ToString(), query, StringComparison.OrdinalIgnoreCase));
-
 
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)
                     {
@@ -47,9 +45,7 @@ namespace BrewerySelect.Pages
                 {
                     ViewData["BreweryTypeSelect"] = null;
                 }
-
                 Type1 = query;
-
             }
         }
 
@@ -58,27 +54,26 @@ namespace BrewerySelect.Pages
             var Count_list = new List<string>
 
             {
-            { "10-56-brewing-company-knox" },
-            { "10-barrel-brewing-co-bend-1" },
-            { "10-barrel-brewing-co-bend-2" },
-            { "10-barrel-brewing-co-boise-boise" },
-            { "10-barrel-brewing-co-bend-pub-bend" },
-            { "10-barrel-brewing-co-denver-denver" },
-            { "10-barrel-brewing-co-portland" },
-            { "10-barrel-brewing-co-san-diego" }, 
-            {"10-torr-distilling-and-brewing-reno" },
-            {"101-brewery-quilcene" },
-            {"101-north-brewing-company-petaluma" },
-            {"105-west-brewing-co-castle-rock" },
-            {"10k-brewing-anoka" },
-            {"10th-district-brewing-company-abington" },
-            {"11-below-brewing-company-houston" },
-            {"1188-brewing-co-john-day" },
-            {"12-acres-brewing-company-killeshin" },
-            {"12-gates-brewing-company-williamsville" },
-            {"12-west-brewing-company-gilbert" },
-            {"12-west-brewing-company-production-facility-mesa" }
-
+                { "10-56-brewing-company-knox" },
+                { "10-barrel-brewing-co-bend-1" },
+                { "10-barrel-brewing-co-bend-2" },
+                { "10-barrel-brewing-co-boise-boise" },
+                { "10-barrel-brewing-co-bend-pub-bend" },
+                { "10-barrel-brewing-co-denver-denver" },
+                { "10-barrel-brewing-co-portland" },
+                { "10-barrel-brewing-co-san-diego" }, 
+                {"10-torr-distilling-and-brewing-reno" },
+                {"101-brewery-quilcene" },
+                {"101-north-brewing-company-petaluma" },
+                {"105-west-brewing-co-castle-rock" },
+                {"10k-brewing-anoka" },
+                {"10th-district-brewing-company-abington" },
+                {"11-below-brewing-company-houston" },
+                {"1188-brewing-co-john-day" },
+                {"12-acres-brewing-company-killeshin" },
+                {"12-gates-brewing-company-williamsville" },
+                {"12-west-brewing-company-gilbert" },
+                {"12-west-brewing-company-production-facility-mesa" }
             };
             ViewData["Type1"] = new SelectList(Count_list);
         }
