@@ -65,7 +65,7 @@ namespace BrewerySelect.Pages
             { "10-barrel-brewing-co-bend-pub-bend" },
             { "10-barrel-brewing-co-denver-denver" },
             { "10-barrel-brewing-co-portland" },
-            { "10-barrel-brewing-co-san-diego" },
+            { "10-barrel-brewing-co-san-diego" }, 
             {"10-torr-distilling-and-brewing-reno" },
             {"101-brewery-quilcene" },
             {"101-north-brewing-company-petaluma" },
