@@ -13,7 +13,7 @@ namespace BreweryType.Pages
     {
         public SelectList BreweryList { get; set; }
         public string Type { get; set; }
-        public List<string> Count_list { get; set; }
+        public List<string> CountList { get; set; }
         public void OnGetAsync(string query)
         {
 
@@ -22,30 +22,30 @@ namespace BreweryType.Pages
 
             {
 
-                string jsonString = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
+                string breweryTypeJson = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
                 
-                var Brewery_Type = Breweries.BreweryCollection.FromJson(jsonString);
+                var breweryType = Breweries.BreweryCollection.FromJson(breweryTypeJson);
           
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
-                    var Brewery_detailsList = Brewery_Type.ToList();
+                    var breweryDetailsList = breweryType.ToList();
                    
-                    var typeWiseBrewerydetails = Brewery_detailsList.FindAll(x => string.Equals(x.BrewerySelect.ToString(), query, StringComparison.OrdinalIgnoreCase));
+                    var typeWiseBrewerydetails = breweryDetailsList.FindAll(x => string.Equals(x.BrewerySelect.ToString(), query, StringComparison.OrdinalIgnoreCase));
                     
                     
                     if (typeWiseBrewerydetails != null && typeWiseBrewerydetails.Count > 0)
                     {
-                   ViewData["Brewery_Type"] = typeWiseBrewerydetails;                     
+                   ViewData["BreweryType"] = typeWiseBrewerydetails;                     
                     }
                     else
                     {
-                        ViewData["Brewery_Type"] = null;
+                        ViewData["BreweryType"] = null;
                     }
                 }
                 else
                 {
-                    ViewData["Brewery_Type"] = null;
+                    ViewData["BreweryType"] = null;
                 }
 
                 Type = query;
@@ -55,7 +55,7 @@ namespace BreweryType.Pages
 
             private void InitStateDropdown()
             {
-            var Count_list = new List<string>
+            var CountList = new List<string>
             {
                 { "Micro" },
                 { "Large" },               
@@ -63,7 +63,7 @@ namespace BreweryType.Pages
             };
 
 
-                ViewData["Type"] = new SelectList(Count_list);
+                ViewData["Type"] = new SelectList(CountList);
             }
         }
     }

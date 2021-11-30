@@ -14,7 +14,7 @@ namespace NobelLaureates.Pages
     {
         public SelectList CountryList { get; set; }
         public string SearchCountry { get; set; }
-        public List<string> Count_list { get; set; }
+        public List<string> CountList { get; set; }
 
         public void OnGetAsync(string query)
         {
@@ -24,25 +24,25 @@ namespace NobelLaureates.Pages
 
             {
 
-                string json_String = webClient.DownloadString("http://api.nobelprize.org/v1/laureate.json");
-                var Laureate_details = QuickTypeNobelLaureates.NobelLaureates.FromJson(json_String);
+                string laureateJson = webClient.DownloadString("http://api.nobelprize.org/v1/laureate.json");
+                var laureateDetails = QuickTypeNobelLaureates.NobelLaureates.FromJson(laureateJson);
 
                 if (!string.IsNullOrWhiteSpace(query))
                 {
-                    var LauretList = Laureate_details.Laureates;
-                    var countryWiseLauretList = LauretList.FindAll(x => string.Equals(x.BornCountry, query, StringComparison.OrdinalIgnoreCase));
+                    var lauretList = laureateDetails.Laureates;
+                    var countryWiseLauretList = lauretList.FindAll(x => string.Equals(x.BornCountry, query, StringComparison.OrdinalIgnoreCase));
                     if (countryWiseLauretList != null && countryWiseLauretList.Count > 0)
                     {
-                        ViewData["Laureate_details"] = countryWiseLauretList;
+                        ViewData["LaureateDetails"] = countryWiseLauretList;
                     }
                     else
                     {
-                        ViewData["Laureate_details"] = null;
+                        ViewData["LaureateDetails"] = null;
                     }
                 }
                 else
                 {
-                    ViewData["Laureate_details"] = null;
+                    ViewData["LaureateDetails"] = null;
                 }
 
                 SearchCountry = query;
@@ -52,7 +52,7 @@ namespace NobelLaureates.Pages
 
         private void InitStateDropdown()
         {
-            var Count_list = new List<string>
+            var CountList = new List<string>
             {
              { "Denmark" },
              { "Germany"},
@@ -61,7 +61,7 @@ namespace NobelLaureates.Pages
 
             };
 
-            ViewData["SearchCountry"] = new SelectList(Count_list);
+            ViewData["SearchCountry"] = new SelectList(CountList);
         }
     }
 
