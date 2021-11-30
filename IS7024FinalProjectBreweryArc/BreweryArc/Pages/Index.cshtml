@@ -10,7 +10,7 @@
 <section class="slideshow-container">
 
     <div class="mySlides fade">
-        <img src="~/images/image1.png" style="width:100%">
+        <img src="~/images/image1.png">
         <div class="centered">
             BreweryArc<br />
             <p>-If you’ve got the time, we’ve got the drinks!</p>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="mySlides fade">
-        <img src="~/images/image2.jpg" style="width:100%">
+        <img src="~/images/image2.jpg">
         <div class="centered">
             BreweryArc<br />
             <p>-If you’ve got the time, we’ve got the drinks!</p>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="mySlides fade">
-        <img src="~/images/image3.jpg" style="width:100%">
+        <img src="~/images/image3.jpg" >
         <div class="centered">
             BreweryArc<br />
             <p>-If you’ve got the time, we’ve got the drinks!</p>
@@ -37,7 +37,7 @@
 
 <section class="fun-fact">
     <div class="fun-fact_beer">
-        <img src="~/images/beerfact.jpeg" style="width:100%">
+        <img src="~/images/beerfact.jpeg" >
     </div>
 </section>
 
@@ -74,7 +74,7 @@
    
     <div class="column">
         <a href="/breweries">
-            <img src="~/images/map.jpg" class="thumbnail" style="width:100%">
+            <img src="~/images/map.jpg" class="thumbnail">
             <div class="img1">
                 Sort Breweries based on the Country - USA and Ireland<br />
             </div>
@@ -83,7 +83,7 @@
    
     <div class="column">
         <a href="/brewerytype">
-            <img src="~/images/breweryType.jpg" class="thumbnail" style="width:100%">
+            <img src="~/images/breweryType.jpg" class="thumbnail" >
             <div class="img2">
                 Sort Breweries Based on the Brewery Type - Micro / Large<br />
             </div>
@@ -100,6 +100,7 @@
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
+        setTimeout(showSlides, 2000);
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
@@ -110,7 +111,7 @@
         }
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
+         // Change image every 2 seconds
     }
 </script>
 
