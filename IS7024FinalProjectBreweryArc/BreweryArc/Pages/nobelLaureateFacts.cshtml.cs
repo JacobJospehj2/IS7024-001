@@ -24,7 +24,7 @@ namespace NobelLaureates.Pages
 
             {
 
-                string laureateJson = webClient.DownloadString("http://api.nobelprize.org/v1/laureate.json");
+                string laureateJson = webClient.DownloadString("http://knowyourfavoritenobellaureate.azurewebsites.net/NobelLaureatesAll");
                 var laureateDetails = QuickTypeNobelLaureates.NobelLaureates.FromJson(laureateJson);
 
                 if (!string.IsNullOrWhiteSpace(query))
