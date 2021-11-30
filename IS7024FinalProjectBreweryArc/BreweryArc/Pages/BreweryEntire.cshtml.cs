@@ -15,7 +15,8 @@ namespace BreweryEntire.Pages
             using (var webClient = new WebClient())
             {
                 string jsonEntire = webClient.DownloadString("https://api.openbrewerydb.org/breweries");
-                return new JsonResult(jsonEntire);
+                var Brewery_entire = Breweries.BreweryCollection.FromJson(jsonEntire);
+                return new JsonResult(Brewery_entire);
             }
         }
     }
