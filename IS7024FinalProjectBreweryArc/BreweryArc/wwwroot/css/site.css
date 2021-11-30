@@ -407,6 +407,51 @@ img {
         vertical-align: middle;
     }
 
+img {
+    width: 100%;
+}
+
+.btn {
+    background-color: gainsboro;
+    height: 39px;
+}
+
+.row {
+    padding: 5px;
+}
+
+.table-hd {
+    background-color: #FFFFE0;
+}
+
+.table-hd-hdr {
+    background-color: darkgoldenrod;
+    color: black;
+    text-align: center;
+}
+
+.table-row {
+    color: black;
+    text-align: center;
+}
+
+.flip-card-front img {
+    width: 300px;
+    height: 300px;
+}
+
+.cardSelect {
+    background-color: goldenrod;
+    margin-left: 450px;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.card {
+    background-color: goldenrod;
+}
 /* Style the buttons */
 /*.btn {
     border: none;
@@ -425,7 +470,6 @@ img {
         background-color: #666;
         color: white;
     }*/
-
 /* footer region ^5h */
 #pageFooter {
     background: darkgoldenrod;
